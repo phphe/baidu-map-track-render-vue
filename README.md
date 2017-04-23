@@ -19,7 +19,7 @@ Or import common or esm
 ```
 # Usage 使用
 ```html
-<BaiduMap ak="your key" :points="points"></BaiduMap>
+<BaiduMapTrackRender ak="your key" :points="points"></BaiduMapTrackRender>
 ```
 The ponit type is WGS84. Example points:
 坐标是WGS84类型的. 示例点:
