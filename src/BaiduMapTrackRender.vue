@@ -1,5 +1,7 @@
 <template>
-  <div class="baidu-map baidu-map-vue" :id="id"></div>
+  <div class="baidu-map-track-render-vue">
+    <div class="baidu-map-track-render-vue__map" :id="id"></div>
+  </div>
 </template>
 <script>
 function windowLoaded() {
@@ -157,8 +159,12 @@ export default {
 }
 </script>
 <style>
-.baidu-map-vue{
+.baidu-map-track-render-vue{
   width: 680px;
   height: 480px;
+}
+.baidu-map-track-render-vue__map{
+  width: 100%;
+  height: 100%;
 }
 </style>

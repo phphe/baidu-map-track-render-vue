@@ -1,7 +1,7 @@
 /*!
  * baidu-map-track-render-vue v1.0.0
  * phphe <phphe@outlook.com> (https://github.com/phphe)
- * https://github.com/phphe/baidu-map-vue.git
+ * https://github.com/phphe/baidu-map-track-render-vue.git
  * Released under the MIT License.
  */
 
@@ -54,7 +54,7 @@ function loadBaiduMap(ak) {
 }
 
 var BaiduMapTrackRender = { render: function render() {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "baidu-map baidu-map-vue", attrs: { "id": _vm.id } });
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "baidu-map-track-render-vue" }, [_c('div', { staticClass: "baidu-map-track-render-vue__map", attrs: { "id": _vm.id } })]);
   }, staticRenderFns: [],
   props: {
     points: {},

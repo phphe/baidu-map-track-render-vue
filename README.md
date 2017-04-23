@@ -18,7 +18,7 @@ Or import common or esm
 ```
 # Usage 使用
 ```html
-<BaiduMap ak="your key" :points="points" :style="{width: '680px', height: '480x'}"></BaiduMap>
+<BaiduMap ak="your key" :points="points"></BaiduMap>
 ```
 The ponit type is WGS84. Example points:
 坐标是WGS84类型的. 示例点:
@@ -32,8 +32,8 @@ points: [
 # Important 注意事项
   1. 此组件仅连接给定的点
   2. 此组件将转换坐标为BD09,所以仅能接受中国地区坐标
-  3. 一定要指定高度, 否则高度为0, 组件将不可见
+  3. 一定要注意高度, 高度为0时组件将不可见
 
   1. This component will only render given points to track
   2. This component will convert the coordinates to BD09, so can only accept the coordinates of the Chinese region
-  3. Be sure to specify the height, otherwise the height is 0, the component will not be visible
+  3. Pay attention on height, when height is 0, the component will not be visible
