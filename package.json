@@ -8,13 +8,13 @@
     "build": "node build/build.js"
   },
   "author": "phphe <phphe@outlook.com> (https://github.com/phphe)",
-  "unpkg": "dist/baidu-map-vue.js",
+  "unpkg": "dist/baidu-map-track-render-vue.js",
   "bugs": {
-    "url": "https://github.com/phphe/baidu-map-vue/issues"
+    "url": "https://github.com/phphe/baidu-map-track-render-vue/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/phphe/baidu-map-vue.git"
+    "url": "https://github.com/phphe/baidu-map-track-render-vue.git"
   },
   "dependencies": {},
   "license": "MIT",
