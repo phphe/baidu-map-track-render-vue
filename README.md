@@ -15,6 +15,7 @@ recommended: import vue component directly
 Or import common or esm
 ```js
   import BaiduMapTrackRender from 'baidu-map-track-render-vue'
+  import 'baidu-map-track-render-vue/dist/BaiduMapTrackRender.css'
 ```
 # Usage 使用
 ```html
