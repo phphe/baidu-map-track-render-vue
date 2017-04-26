@@ -85,28 +85,6 @@ export default {
     })
   },
   methods: {
-    mapReady(BMap) {
-      if (this.points) {
-        this.convertPoints(this.points, BMap).then(({points}) => {
-          var map = new BMap.Map('map')
-          var center = this.getCenter(points, BMap)
-          map.centerAndZoom(center, 15)
-          map.enableScrollWheelZoom()
-
-          for (let i = 0; i < points.length; i++) {
-            const prev = points[i - 1]
-            if (prev) {
-              const current = points[i]
-              const polyline = new BMap.Polyline([
-                prev,
-                current,
-              ], {strokeColor: 'blue', strokeWeight: 2, strokeOpacity: 0.5})   // 创建折线
-              map.addOverlay(polyline)   // 增加折线
-            }
-          }
-        })
-      }
-    },
     getCenter(points, BMap) {
       let maxX = points[0].lng
       let maxY = points[0].lat
@@ -166,5 +144,8 @@ export default {
 .baidu-map-track-render-vue__map{
   width: 100%;
   height: 100%;
+}
+.baidu-map-track-render-vue__map svg{
+  max-width: inherit;
 }
 </style>

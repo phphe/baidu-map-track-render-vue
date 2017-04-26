@@ -1,6 +1,6 @@
 {
   "name": "baidu-map-track-render-vue",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "dist/BaiduMapTrackRender.common.js",
   "module": "dist/BaiduMapTrackRender.esm.js",
