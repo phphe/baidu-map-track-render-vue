@@ -1,5 +1,5 @@
 /*!
- * baidu-map-track-render-vue v1.0.3
+ * baidu-map-track-render-vue v1.0.5
  * phphe <phphe@outlook.com> (https://github.com/phphe)
  * https://github.com/phphe/baidu-map-track-render-vue.git
  * Released under the MIT License.

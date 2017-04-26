@@ -145,6 +145,7 @@ export default {
   width: 100%;
   height: 100%;
 }
+/* prevent other css effect baidumap overlay */
 .baidu-map-track-render-vue__map svg{
   max-width: inherit;
 }
