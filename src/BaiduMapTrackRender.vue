@@ -109,18 +109,13 @@ export default {
     convertPoints(points, BMap) {
       const convertor = new BMap.Convertor()
       //
-      const BMapPoints = []
-      for (const point of points) {
-        BMapPoints.push(new BMap.Point(point.lng, point.lat))
-      }
+      const BMapPoints = points.map(point => new BMap.Point(point.lng, point.lat))
       //
       const promises = []
       const n = 100
-      for (let i = 0, j = 0; j < points.length; i++, j += n) {
+      while (BMapPoints.length > 0) {
         promises.push(new Promise((resolve, reject) => {
-          const start = i * n
-          const end = start + n
-          convertor.translate(BMapPoints.slice(start, end), 1, 5, (data) => { resolve(data) })
+          convertor.translate(BMapPoints.splice(0, n), 1, 5, (data) => { resolve(data) })
         }))
       }
       return Promise.all(promises).then((datas) => {
