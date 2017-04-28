@@ -1,5 +1,5 @@
 /*!
- * baidu-map-track-render-vue v1.0.8
+ * baidu-map-track-render-vue v1.0.10
  * phphe <phphe@outlook.com> (https://github.com/phphe)
  * https://github.com/phphe/baidu-map-track-render-vue.git
  * Released under the MIT License.
@@ -79,29 +79,34 @@ var BaiduMapTrackRender = { render: function render() {
     this.$nextTick(function () {
       loadBaiduMap(_this.ak).then(function (BMap) {
         if (_this.points) {
-          _this.convertPoints(_this.points, BMap).then(function (_ref) {
-            var points = _ref.points;
-
-            var map = new BMap.Map(_this.id);
-            var center = _this.getCenter(points, BMap);
-            map.centerAndZoom(center, 15);
-            map.enableScrollWheelZoom();
-
-            for (var i = 0; i < points.length; i++) {
-              var prev = points[i - 1];
-              if (prev) {
-                var current = points[i];
-                var polyline = new BMap.Polyline([prev, current], { strokeColor: 'blue', strokeWeight: 2, strokeOpacity: 0.5 }); // 创建折线
-                map.addOverlay(polyline); // 增加折线
-              }
-            }
-          });
+          _this.ready(BMap, _this.points);
         }
       });
     });
   },
 
   methods: {
+    ready: function ready(BMap, points) {
+      var _this2 = this;
+
+      this.convertPoints(points, BMap).then(function (_ref) {
+        var points = _ref.points;
+
+        var map = new BMap.Map(_this2.id);
+        var center = _this2.getCenter(points, BMap);
+        map.centerAndZoom(center, 15);
+        map.enableScrollWheelZoom();
+
+        for (var i = 0; i < points.length; i++) {
+          var prev = points[i - 1];
+          if (prev) {
+            var current = points[i];
+            var polyline = new BMap.Polyline([prev, current], { strokeColor: 'blue', strokeWeight: 2, strokeOpacity: 0.5 }); // 创建折线
+            map.addOverlay(polyline); // 增加折线
+          }
+        }
+      });
+    },
     getCenter: function getCenter(points, BMap) {
       var maxX = points[0].lng;
       var maxY = points[0].lat;
