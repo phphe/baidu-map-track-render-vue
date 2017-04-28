@@ -66,29 +66,32 @@ export default {
     this.$nextTick(() => {
       loadBaiduMap(this.ak).then((BMap) => {
         if (this.points) {
-          this.convertPoints(this.points, BMap).then(({points}) => {
-            var map = new BMap.Map(this.id)
-            var center = this.getCenter(points, BMap)
-            map.centerAndZoom(center, 15)
-            map.enableScrollWheelZoom()
-
-            for (let i = 0; i < points.length; i++) {
-              const prev = points[i - 1]
-              if (prev) {
-                const current = points[i]
-                const polyline = new BMap.Polyline([
-                  prev,
-                  current,
-                ], {strokeColor: 'blue', strokeWeight: 2, strokeOpacity: 0.5})   // 创建折线
-                map.addOverlay(polyline)   // 增加折线
-              }
-            }
-          })
+          this.ready(BMap, this.points)
         }
       })
     })
   },
   methods: {
+    ready(BMap, points) {
+      this.convertPoints(points, BMap).then(({points}) => {
+        var map = new BMap.Map(this.id)
+        var center = this.getCenter(points, BMap)
+        map.centerAndZoom(center, 15)
+        map.enableScrollWheelZoom()
+
+        for (let i = 0; i < points.length; i++) {
+          const prev = points[i - 1]
+          if (prev) {
+            const current = points[i]
+            const polyline = new BMap.Polyline([
+              prev,
+              current,
+            ], {strokeColor: 'blue', strokeWeight: 2, strokeOpacity: 0.5})   // 创建折线
+            map.addOverlay(polyline)   // 增加折线
+          }
+        }
+      })
+    },
     getCenter(points, BMap) {
       let maxX = points[0].lng
       let maxY = points[0].lat
