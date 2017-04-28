@@ -1,5 +1,5 @@
 /*!
- * baidu-map-track-render-vue v1.0.6
+ * baidu-map-track-render-vue v1.0.8
  * phphe <phphe@outlook.com> (https://github.com/phphe)
  * https://github.com/phphe/baidu-map-track-render-vue.git
  * Released under the MIT License.
@@ -56,7 +56,8 @@ var BaiduMapTrackRender = { render: function render() {
   }, staticRenderFns: [],
   props: {
     points: {},
-    ak: {}
+    ak: {},
+    coordinateConversionLimit: { default: 10 }
   },
   data: function data() {
     return {
@@ -143,7 +144,7 @@ var BaiduMapTrackRender = { render: function render() {
       });
       //
       var promises = [];
-      var n = 100;
+      var n = this.coordinateConversionLimit;
       while (BMapPoints.length > 0) {
         promises.push(new Promise(function (resolve, reject) {
           convertor.translate(BMapPoints.splice(0, n), 1, 5, function (data) {

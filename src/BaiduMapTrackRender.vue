@@ -51,7 +51,8 @@ function loadBaiduMap(ak) {
 export default {
   props: {
     points: {},
-    ak: {}
+    ak: {},
+    coordinateConversionLimit: { default: 10 },
   },
   data() {
     return {
@@ -112,7 +113,7 @@ export default {
       const BMapPoints = points.map(point => new BMap.Point(point.lng, point.lat))
       //
       const promises = []
-      const n = 100
+      const n = this.coordinateConversionLimit
       while (BMapPoints.length > 0) {
         promises.push(new Promise((resolve, reject) => {
           convertor.translate(BMapPoints.splice(0, n), 1, 5, (data) => { resolve(data) })
