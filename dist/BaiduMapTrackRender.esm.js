@@ -1,5 +1,5 @@
 /*!
- * baidu-map-track-render-vue v1.0.5
+ * baidu-map-track-render-vue v1.0.6
  * phphe <phphe@outlook.com> (https://github.com/phphe)
  * https://github.com/phphe/baidu-map-track-render-vue.git
  * Released under the MIT License.
@@ -147,7 +147,7 @@ var BaiduMapTrackRender = { render: function render() {
         for (var _iterator2 = points[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
           var point = _step2.value;
 
-          BMapPoints.push(new BMap.Point(point[0], point[1]));
+          BMapPoints.push(new BMap.Point(point.lng, point.lat));
         }
         //
       } catch (err) {

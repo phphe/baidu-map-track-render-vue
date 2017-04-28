@@ -111,7 +111,7 @@ export default {
       //
       const BMapPoints = []
       for (const point of points) {
-        BMapPoints.push(new BMap.Point(point[0], point[1]))
+        BMapPoints.push(new BMap.Point(point.lng, point.lat))
       }
       //
       const promises = []
