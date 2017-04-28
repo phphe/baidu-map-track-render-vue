@@ -26,6 +26,9 @@ function unset(obj, prop) {
 }
 //
 function loadBaiduMap(ak) {
+  if (window.BMap) {
+    return Promise.resolve(window.BMap);
+  }
   var fun = loadBaiduMap;
   return windowLoaded().then(function () {
     if (fun.loaded) {
